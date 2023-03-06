@@ -21,7 +21,7 @@ class MessageLogic extends Logic
 
     public function put($message)
     {
-        array_unshift($this->messages, $message);
+        $this->messages[] = $message;
         $this->newMessages[] = array_merge(['chatid' => $this->id, 'created_at' => time()], $message);
         return $this;
     }
