@@ -1,0 +1,26 @@
+{
+    "base_secret": {
+        "group": "基础",
+        "group_key": "base",
+        "name": "base_secret",
+        "alias": "secret",
+        "title": "秘钥",
+        "type": "password",
+        "options": [],
+        "value": "",
+        "placeholder": "",
+        "tip": "<a target=\"_blank\" href=\"https:\/\/platform.openai.com\/account\/api-keys\">创建secret key<\/a>"
+    },
+    "base_proxy": {
+        "group": "基础",
+        "group_key": "base",
+        "name": "base_proxy",
+        "alias": "proxy",
+        "title": "代理",
+        "type": "string",
+        "options": [],
+        "value": "",
+        "placeholder": "",
+        "tip": ""
+    }
+}
