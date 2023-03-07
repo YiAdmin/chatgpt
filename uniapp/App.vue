@@ -24,12 +24,6 @@
 	@import "@/uni_modules/uview-ui/index.scss";
 	@import '@/static/css/iconfont.css';
 
-	/* #ifdef H5 */
-	page {
-		background-color: #f5f5f5;
-	}
-
-	/* #endif */
 	view {
 		display: flex;
 		flex-direction: column;

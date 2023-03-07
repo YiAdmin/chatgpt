@@ -55,7 +55,7 @@
 				default: true
 			},
 			contentPadding: {
-				default: '20px'
+				default: '20px 20px 0 20px'
 			}
 		},
 		watch: {
@@ -81,7 +81,10 @@
 	}
 </script>
 <style scoped lang="scss">
-
+	.content {
+		max-height: 60vh;
+		overflow-y: scroll;
+	}
 	.title {
 		    text-align: center;
 		    padding: 30rpx 0;

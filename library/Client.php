@@ -8,7 +8,9 @@ class Client
 {
     const URL = [
         'chat' => 'https://api.openai.com/v1/chat/completions',
-        'completions' => 'https://api.openai.com/v1/completions'
+        'completions' => 'https://api.openai.com/v1/completions',
+        'edit' => 'https://api.openai.com/v1/edits',
+        'image' => 'https://api.openai.com/v1/images/generations'
     ];
 
     protected $_setOption;
@@ -28,14 +30,35 @@ class Client
         return $this->post(static::URL['chat'], $options, $headers);
     }
 
-    public function completions($prompt, $options = [])
+    public function completions($prompt, $options = [], $headers = [])
     {
         $defaults = [
             'model' => 'text-davinci-003',
             'max_tokens' => 2048
         ];
         $options = array_merge($defaults, $options, ['prompt' => $prompt]);
-        return $this->post(static::URL['completions'], $options);
+        return $this->post(static::URL['completions'], $options, $headers);
+    }
+
+    public function textedit($options = [], $headers = [])
+    {
+        $defaults = [
+            'model' => 'text-davinci-edit-001',
+            'n' => 1,
+            'temperature' => 1
+        ];
+        $options = array_merge($defaults, $options);
+        return $this->post(static::URL['edit'], $options, $headers);
+
+    }
+
+    public function image($options = [], $headers = [])
+    {
+        $defaults = [
+            'n' => 1, 'size' => '1024x1024', 'response_format' => 'b64_json'
+        ];
+        $options = array_merge($defaults, $options);
+        return $this->post(static::URL['image'], $options, $headers);
     }
 
     public function get($url, $headers = [], $type = 'json')
